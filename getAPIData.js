@@ -12,10 +12,17 @@ function pingPlayerCount() {
       if (res.data) {
         var jsonresponse = JSON.stringify(res.data);
         // Write data in 'Output.txt' .
-        fs.writeFile("apiOutput.json", jsonresponse, (err) => {
-          // In case of a error throw err.
-          if (err) throw err;
-        });
+        fs.writeFile(
+          "apiOutput.json",
+          jsonresponse.slice(0, -1) +
+            ', "updateTime" : "' +
+            moment().format() +
+            '"}',
+          (err) => {
+            // In case of a error throw err.
+            if (err) throw err;
+          }
+        );
         console.log(`[${moment().format("hh:mm:s")}] Logged json response`);
       } else {
         console.log("Could not fetch data from API, the server may be down.");

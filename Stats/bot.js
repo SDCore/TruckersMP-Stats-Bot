@@ -3,11 +3,11 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const moment = require("moment");
 const fs = require("fs");
-const config = require("../apiOutput.json");
+const APIOutput = require("../apiOutput.json");
 
 // Runs when the client connects to Discord
 client.on("ready", () => {
-  console.log("Logging in as", client.user.tag);
+  console.log(`Logging in as ${client.user.tag}`);
 
   // Sets the bots status to online
   client.user.setStatus("online");
@@ -55,6 +55,12 @@ client.on("ready", () => {
         .addField("Server Count", `${client.guilds.cache.size} Servers`, true);
 
       return message.channel.send(infoEmbed);
+    }
+
+    if (command == "bot") {
+      return message.channel.send(
+        `bot version: ${process.env.BOT_VERSION}. last updated: ${process.env.LAST_UPDATED}`
+      );
     }
 
     // Help Command
@@ -113,27 +119,40 @@ client.on("ready", () => {
     }
 
     if (command === "servers") {
-      const serverEmbed = new Discord.MessageEmbed()
-        .setTitle("TruckersMP Server List")
-        .setAuthor("TruckersMP Stats Bot")
-        .setColor([100, 65, 164])
-        .setDescription("A current list of servers available to the bot.")
-        .setFooter(creatorName, creatorLogo)
-        .addField(
-          "ETS2 Simulation Servers",
-          "eusim1\neusim2\neusim3\nussim\nsgpsim",
-          true
-        )
-        .addField("ETS2 Arcade Servers", "euarc", true)
-        .addField("ETS2 ProMods Servers", "eupromods", true)
-        .addField("ATS Simulation Servers", "ussim\neusim", true)
-        .addField(
-          "Event Servers (Can be used with any game)",
-          "eventserver1\neventserver2\neventserver3",
-          true
-        );
+      fs.readFile("../apiOutput.json", "utf8", (err, jString) => {
+        // If the file is failed to be read (ie. insufficient permissions)
+        if (err) {
+          console.log("File read failed:", err);
+          return;
+        }
 
-      return message.channel.send(serverEmbed);
+        // Set jsonString to the response from the file
+        jsonString = JSON.parse(jString);
+        const serverEmbed = new Discord.MessageEmbed()
+          .setTitle("TruckersMP Server List")
+          .setAuthor("TruckersMP Stats Bot")
+          .setColor([100, 65, 164])
+          .setDescription(
+            `A current list of servers available to the bot.\nData was last fetched **${moment(
+              jsonString.updateTime
+            ).fromNow()}**.`
+          )
+          .setFooter(creatorName, creatorLogo)
+          .addField(
+            "ETS2 Simulation Servers",
+            "eusim1\neusim2\neusim3\nussim\nsgpsim",
+            true
+          )
+          .addField("ETS2 Arcade Servers", "euarc", true)
+          .addField("ETS2 ProMods Servers", "eupromods", true)
+          .addField("ATS Simulation Servers", "ussim\neusim", true)
+          .addField(
+            "Event Servers (Can be used with any game)",
+            "eventserver1\neventserver2\neventserver3",
+            true
+          );
+        return message.channel.send(serverEmbed);
+      });
     }
 
     if (command === "stats") {
