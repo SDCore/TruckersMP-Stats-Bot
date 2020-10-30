@@ -38,29 +38,23 @@ client.on("ready", () => {
     const command = args.shift().toLowerCase();
 
     const creatorName = "SDBots 2020";
-    const creatorLogo = "https://i.imgur.com/24NxSmW.png";
+    const creatorLogo = "https://sdcore.dev/i/1m3gbh27.png";
 
     // Info Command
     if (command === "info") {
       const infoEmbed = new Discord.MessageEmbed()
-        .setTitle("TruckersMP Stats Bot Info")
         .setAuthor("TruckersMP Stats Bot")
+        .setTitle("Bot Info")
         .setColor([100, 65, 164])
         .setDescription("Information about this bot.")
         .setFooter(creatorName, creatorLogo)
-        .setThumbnail("https://i.imgur.com/nGbEuZo.png")
+        .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
         .setTimestamp()
         .addField("Bot Version", `${process.env.BOT_VERSION}`, true)
         .addField("Last Updated", `${process.env.LAST_UPDATED}`, true)
         .addField("Server Count", `${client.guilds.cache.size} Servers`, true);
 
       return message.channel.send(infoEmbed);
-    }
-
-    if (command == "bot") {
-      return message.channel.send(
-        `bot version: ${process.env.BOT_VERSION}. last updated: ${process.env.LAST_UPDATED}`
-      );
     }
 
     // Help Command
@@ -74,6 +68,7 @@ client.on("ready", () => {
           .setColor([100, 65, 164])
           .setDescription("A list of all the commands available to the bot.")
           .setFooter(creatorName, creatorLogo)
+          .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
           .setTimestamp()
           .addField(
             "This Bot",
@@ -103,6 +98,7 @@ client.on("ready", () => {
         const helpStatsEmbed = new Discord.MessageEmbed()
           .setTitle("How to use the Stats Command")
           .setAuthor("TruckersMP Stats Bot")
+          .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
           .setColor([100, 65, 164])
           .setDescription(
             "The stats command takes 2 arguments: A game argument, and a server argument.\n\nThe game argument can be one of three things: ATS, ETS2, or Event.\n\nThe server argument can be any of the servers listed under the !!servers command."
@@ -129,6 +125,7 @@ client.on("ready", () => {
         // Set jsonString to the response from the file
         jsonString = JSON.parse(jString);
         const serverEmbed = new Discord.MessageEmbed()
+          .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
           .setTitle("TruckersMP Server List")
           .setAuthor("TruckersMP Stats Bot")
           .setColor([100, 65, 164])
@@ -153,6 +150,7 @@ client.on("ready", () => {
           );
         return message.channel.send(serverEmbed);
       });
+      return;
     }
 
     if (command === "stats") {
@@ -171,7 +169,7 @@ client.on("ready", () => {
 
         if (!args.length) {
           return message.channel.send(
-            "Please provide valid arguments for this command. Need help? Type ```!!help stats``` for more information."
+            "Please provide valid arguments for this command. Need help? Type `!!help stats` for more information."
           );
         }
 
@@ -381,4 +379,4 @@ client.on("ready", () => {
 });
 
 // Login to Discord
-client.login(process.env.DISCORD_TOKEN);
+client.login();
