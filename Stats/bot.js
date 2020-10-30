@@ -1,9 +1,19 @@
 require("dotenv").config();
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const moment = require("moment");
-const fs = require("fs");
 require("../apiOutput.json");
+
+const Discord = require("discord.js");
+const client = new Discord.Client({
+  cacheRoles: false,
+  cacheGuilds: true,
+  cacheEmojis: false,
+  cacheChannels: false,
+  cachePresences: false,
+  cacheOverwrites: false,
+});
+
+const config = require("./config.json");
+const fs = require("fs");
+const moment = require("moment");
 
 // Runs when the client connects to Discord
 client.on("ready", () => {
@@ -13,13 +23,12 @@ client.on("ready", () => {
   client.user.setStatus("online");
 
   // Set the bots presence to inform the user how to use the bot
-  client.user.setPresence({
-    game: {
-      // "!!help for info"
-      name: "!!help for info",
-      type: 3, // Watching
-    },
-  });
+  client.user
+    .setPresence({
+      activity: { name: "!!help for help", type: "WATCHING" },
+      status: "online",
+    })
+    .catch(console.error);
 
   // When there is a message on the server...
   client.on("message", (message) => {
