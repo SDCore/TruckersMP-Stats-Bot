@@ -75,13 +75,12 @@ client.on("ready", () => {
           .setTitle("TruckersMP Stats Bot Help and Command List")
           .setAuthor("TruckersMP Stats Bot")
           .setColor([100, 65, 164])
-          .setDescription("A list of all the commands available to the bot.")
           .setFooter(creatorName, creatorLogo)
           .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
           .setTimestamp()
           .addField(
             "This Bot",
-            "This bot can show information about specific ATS and ETS2 TruckersMP servers.\nCurrently, it's a pre-populated list of servers, but in the future, it will be able to dynamically pull the list of currently online servers and show information automatically.\nThis bot is useful for events, checking server player count and queue, and overall showing more information than the normal Presence Bots.",
+            "A list of all the commands available to the bot.\n\nThis bot can show information about specific ATS and ETS2 TruckersMP servers.\n\nIt's useful for event servers, checking server player count and queue, and overall showing more information.",
             false
           )
           .addField(`${prefix}help`, "Shows this response.", true)
