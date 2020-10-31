@@ -19,7 +19,7 @@ for (const file of commandFiles) {
 
 client.on("message", (message) => {
   // If the author of the message is the bot, ignore it
-  if (message.author.equals(client.user)) return;
+  if (message.author.bot) return;
 
   if (message.channel.type == "dm") {
     dmContent = `**(${moment(message.createdAt).format(
@@ -35,4 +35,7 @@ client.on("message", (message) => {
     );
     return;
   }
+
+  // If the message does not start with the prefix, ignore it
+  if (!message.content.startsWith(prefix)) return;
 });
