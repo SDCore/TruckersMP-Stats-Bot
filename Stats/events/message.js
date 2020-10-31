@@ -38,4 +38,17 @@ client.on("message", (message) => {
 
   // If the message does not start with the prefix, ignore it
   if (!message.content.startsWith(prefix)) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const commandName = args.shift().toLowerCase();
+
+  if (!client.commands.has(commandName)) return;
+  const command = client.commands.get(commandName);
+
+  try {
+    command.execute(message, args);
+  } catch (error) {
+    console.log(error);
+    message.reply("There was an issue running that command.");
+  }
 });

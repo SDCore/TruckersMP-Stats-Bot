@@ -1,4 +1,6 @@
 {
     "prefix": "BOT PREFIX",
-    "token": "DISCORD TOKEN"
+    "token": "DISCORD TOKEN",
+    "creatorName": "CREATOR NAME",
+    "creatorLogo": "CREATOR LOGO LINK"
 }

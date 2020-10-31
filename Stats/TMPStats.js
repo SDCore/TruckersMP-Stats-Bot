@@ -36,23 +36,6 @@ client.on("message", (message) => {
   const creatorName = "SDBots 2020";
   const creatorLogo = "https://sdcore.dev/i/1m3gbh27.png";
 
-  // Info Command
-  if (command === "info") {
-    const infoEmbed = new Discord.MessageEmbed()
-      .setAuthor("TruckersMP Stats Bot")
-      .setTitle("Bot Info")
-      .setColor([100, 65, 164])
-      .setDescription("Information about this bot.")
-      .setFooter(creatorName, creatorLogo)
-      .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
-      .setTimestamp()
-      .addField("Bot Version", `${process.env.BOT_VERSION}`, true)
-      .addField("Last Updated", `${process.env.LAST_UPDATED}`, true)
-      .addField("Server Count", `${client.guilds.cache.size} Servers`, true);
-
-    return message.channel.send(infoEmbed);
-  }
-
   // Help Command
   if (command === "help") {
     let argOne = args[0];
