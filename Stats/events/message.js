@@ -18,10 +18,7 @@ for (const file of commandFiles) {
 }
 
 client.on("message", (message) => {
-  // If the author of the message is the bot, ignore it
-  if (message.author.bot) return;
-
-  if (message.channel.type == "dm") {
+  if (message.channel.type == "dm" && !message.author.bot) {
     dmContent = `**(${moment(message.createdAt).format(
       "MMMM Do, YYYY h:mm:ss A"
     )}) [${message.author}]**\n${message.content}`;
@@ -37,12 +34,14 @@ client.on("message", (message) => {
   }
 
   // If the message does not start with the prefix, ignore it
-  if (!message.content.startsWith(prefix)) return;
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const commandName = args.shift().toLowerCase();
 
+  console.log("1");
   if (!client.commands.has(commandName)) return;
+  console.log("2");
   const command = client.commands.get(commandName);
 
   try {

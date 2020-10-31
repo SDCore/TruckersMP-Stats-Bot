@@ -349,9 +349,6 @@ client.on("message", (message) => {
     });
   } else {
     // If the command specified doesn't exist
-    return message.channel.send(
-      `That is not a valid command, ${message.author}.`
-    );
   }
 });
 
