@@ -24,21 +24,21 @@ jobs:
         env:
           CI: true
 
-deploy:
-  runs-on: ubuntu-latest
-  needs: Setup
-  if: github.ref == 'refs/head/production'
-  steps:
-    - name: Deploy to Vultr
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
-          cd ~/TMPStats
-          git pull
-          npm prune
-          npm ci
-          pm2 reload 7
+  deploy:
+    runs-on: ubuntu-latest
+    needs: Setup
+    if: github.ref == 'refs/head/production'
+    steps:
+      - name: Deploy to Vultr
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ~/TMPStats
+            git pull
+            npm prune
+            npm ci
+            pm2 reload 7
