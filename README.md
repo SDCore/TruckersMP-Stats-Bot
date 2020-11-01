@@ -6,6 +6,18 @@ This discord bot allows users to view stats about TruckersMP Servers, such as cu
 
 It's currently in a big stage of a rewrite, but it's slowly getting there.
 
+## Current Features
+
+- Show current available server list (static, has to be updated manually; plans for dynamic server fetching in the books)
+- Show information about each server such as players online, max players, players in queue, whether or not collisions or cars are enabled, and more
+
+## Planned Features
+
+- Dynamic server list loading
+- Better caching of server information
+- Historic stats about server player counts, uptime, etc.
+- Player stats (ie. basic information, ban history, current in-game location/cargo/destination, etc.)
+
 ## Support Server
 
 If you'd like to join the discord support server, head on over to [https://discord.gg/f3Pa8vJ](https://discord.gg/f3Pa8vJ).
