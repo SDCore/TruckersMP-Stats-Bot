@@ -29,7 +29,7 @@ jobs:
     needs: Setup
     if: github.ref == 'refs/heads/production'
     steps:
-      - name: Deploying to Digitalocean droplet
+      - name: Deploying to Vultr
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
