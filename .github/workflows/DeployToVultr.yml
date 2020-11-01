@@ -6,39 +6,39 @@ on:
     branches: [production]
 
 jobs:
-  Setup:
-    runs-on: ubuntu-latest
+  test: # names the job
+    runs-on: ubuntu-latest # sets the version of linux we want to use, should be what you have on your server
 
     strategy:
-      fail-fast: false
+      fail-fast: false # tells github to not run further steps if this one fails
       matrix:
-        node-version: [12.18.4]
+        node-version: [12.18.4] # sets the version of node we want to use, should be what you have on your server
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2 # fetches your commit to test it
+      - name: Use Node.js ${{ matrix.node-version }} # names our step
+        uses: actions/setup-node@v1 # downloads node and npm
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
         env:
-          CI: true
+          CI: true # shows terminal output!
 
   deploy:
     runs-on: ubuntu-latest
-    needs: Setup
-    if: github.ref == 'refs/head/production'
+    needs: test # this job depends on "test" having finished
+    if: github.ref == 'refs/heads/production' # we tell Github to only execute this step if we're on our master branch (so we don't put unfinished branches in production)
     steps:
-      - name: Deploy to Vultr
-        uses: appleboy/ssh-action@master
-        with:
+      - name: Deploying to Digitalocean droplet
+        uses: appleboy/ssh-action@master # An action made to control Linux servers
+        with: # We set all our secrets here for the action, these won't be shown in the action logs
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ~/TMPStats
-            git pull
-            npm prune
-            npm ci
-            pm2 reload 7
+            cd ~/TMPStats # we move into our app's folder
+            git pull # we pull any changes from git
+            npm prune # we remove any unused dependencies
+            npm ci # we install any missing dependencies
+            pm2 reload 7 # we reload the app via PM2
