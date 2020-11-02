@@ -6,6 +6,24 @@ This discord bot allows users to view stats about TruckersMP Servers, such as cu
 
 It's currently in a big stage of a rewrite, but it's slowly getting there.
 
+## How to Use
+
+The bot is fairly simple to use, and more detailed usage can be found by running `!!commands` in any channel the bot is in.
+
+That being said, here are a few commands:
+
+`!!help`
+
+- Shows basic info about the bot
+
+`!!servers`
+
+- Shows the current server info available to the bot
+
+`!!stats [game] [server]`
+
+- Shows stats about the selected server
+
 ## Current Features
 
 - Show current available server list (static, has to be updated manually; plans for dynamic server fetching in the books)
