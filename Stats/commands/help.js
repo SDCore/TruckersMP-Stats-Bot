@@ -13,7 +13,7 @@ module.exports = {
         .setTitle("TruckersMP Stats Bot Help and Command List")
         .setAuthor("TruckersMP Stats Bot")
         .setColor([100, 65, 164])
-        .setFooter(config.creatorName, config.creatorLogo)
+        .setFooter(process.env.CREATOR_NAME, process.env.CREATOR_LOGO)
         .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
         .setTimestamp()
         .addField(
@@ -49,7 +49,7 @@ module.exports = {
         .setDescription(
           "The stats command takes 2 arguments: A game argument, and a server argument.\n\nThe game argument can be one of three things: ATS, ETS2, or Event.\n\nThe server argument can be any of the servers listed under the !!servers command."
         )
-        .setFooter(config.creatorName, config.creatorLogo)
+        .setFooter(process.env.CREATOR_NAME, process.env.CREATOR_LOGO)
         .setTimestamp();
 
       return message.channel.send(helpStatsEmbed);

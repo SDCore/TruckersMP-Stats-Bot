@@ -11,7 +11,7 @@ module.exports = {
       .setTitle("Bot Info")
       .setColor([100, 65, 164])
       .setDescription("Information about this bot.")
-      .setFooter(config.creatorName, config.creatorLogo)
+      .setFooter(process.env.CREATOR_NAME, process.env.CREATOR_LOGO)
       .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
       .setTimestamp()
       .addField("Bot Version", `${process.env.BOT_VERSION}`, true)
