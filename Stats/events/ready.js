@@ -26,8 +26,12 @@ client.once("ready", () => {
 
   // Set the bots presence and updates
   // it every 5 minutes
-  setInterval(() => {
-    setPresence();
-    console.log(`[${moment().format("hh:mm:ss")}] Updated presence for bot`);
-  }, 1000 * 60 * 5);
+  setInterval(function () {
+    var date = new Date();
+
+    if (date.getMinutes() % 5 == 0) {
+      setPresence();
+      console.log(`[${moment().format("hh:mm:ss")}] Updated presence for bot`);
+    }
+  }, Math.max(1, 5 || 1) * 60 * 1000);
 });
