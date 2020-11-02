@@ -9,7 +9,7 @@ module.exports = {
     const infoEmbed = new Discord.MessageEmbed()
       .setAuthor("TruckersMP Stats Bot")
       .setTitle("Bot Info")
-      .setColor([100, 65, 164])
+      .setColor("B92025")
       .setDescription("Information about this bot.")
       .setFooter(process.env.CREATOR_NAME, process.env.CREATOR_LOGO)
       .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
@@ -24,6 +24,6 @@ module.exports = {
         false
       );
 
-    return message.channel.send(infoEmbed);
+    message.channel.send(infoEmbed);
   },
 };

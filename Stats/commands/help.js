@@ -12,7 +12,7 @@ module.exports = {
       const helpEmbed = new Discord.MessageEmbed()
         .setTitle("TruckersMP Stats Bot Help and Command List")
         .setAuthor("TruckersMP Stats Bot")
-        .setColor([100, 65, 164])
+        .setColor("B92025")
         .setFooter(process.env.CREATOR_NAME, process.env.CREATOR_LOGO)
         .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
         .setTimestamp()
@@ -39,22 +39,22 @@ module.exports = {
         )
         .addField(`${config.prefix}info`, "Shows info about the bot.", true);
 
-      return message.channel.send(helpEmbed);
+      message.channel.send(helpEmbed);
     } else if (argOne == "stats") {
       const helpStatsEmbed = new Discord.MessageEmbed()
         .setTitle("How to use the Stats Command")
         .setAuthor("TruckersMP Stats Bot")
         .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
-        .setColor([100, 65, 164])
+        .setColor("B92025")
         .setDescription(
           "The stats command takes 2 arguments: A game argument, and a server argument.\n\nThe game argument can be one of three things: ATS, ETS2, or Event.\n\nThe server argument can be any of the servers listed under the !!servers command."
         )
         .setFooter(process.env.CREATOR_NAME, process.env.CREATOR_LOGO)
         .setTimestamp();
 
-      return message.channel.send(helpStatsEmbed);
+      message.channel.send(helpStatsEmbed);
     } else {
-      return message.channel.send(
+      message.channel.send(
         `That is not a valid argument for that command, ${message.author}.`
       );
     }
