@@ -16,7 +16,13 @@ module.exports = {
       .setTimestamp()
       .addField("Bot Version", `${process.env.BOT_VERSION}`, true)
       .addField("Last Updated", `${process.env.LAST_UPDATED}`, true)
-      .addField("Server Count", `${client.guilds.cache.size} Servers`, true);
+      .addField("Server Count", `${client.guilds.cache.size} Servers`, true)
+      .addField("Support Server", `${process.env.SUPPORT_SERVER}`, false)
+      .addField(
+        "Github Repo",
+        "https://github.com/SDCore/TruckersMP-Server-Stats",
+        false
+      );
 
     return message.channel.send(infoEmbed);
   },
