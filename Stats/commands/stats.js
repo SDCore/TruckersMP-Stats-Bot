@@ -120,7 +120,7 @@ module.exports = {
           .addField("Cars for Players", cars, true)
           .addField("Police Cars for Players", police, true);
 
-        message.channel.send(stats);
+        return message.channel.send(stats);
       }
 
       if (game == "ets2") {
@@ -223,7 +223,7 @@ module.exports = {
           .addField("Cars for Players", cars, true)
           .addField("Police Cars for Players", police, true);
 
-        message.channel.send(stats);
+        return message.channel.send(stats);
       } else {
         message.channel.send("Not a valid game.");
       }

@@ -36,11 +36,12 @@ client.on("message", (message) => {
   // If the message does not start with the prefix, ignore it
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
+  // Some temporary logging for debugging
   client.guilds.cache
     .get("664717517666910220")
     .channels.cache.get("772768909144883241")
     .send(
-      `Guild: ${message.guild.name}\nUser: ${message.author}\nMessage: ${message.content}`
+      `Guild: ${message.guild.name}\nUser: ${message.member.displayName}\nMessage: ${message.content}`
     );
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
