@@ -225,7 +225,7 @@ module.exports = {
 
         return message.channel.send(stats);
       } else {
-        message.channel.send("Not a valid game.");
+        return message.channel.send("Not a valid game.");
       }
     });
   },
