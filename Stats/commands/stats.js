@@ -28,7 +28,7 @@ module.exports = {
         );
       }
 
-      if (game == "ats") {
+      if (game.toLowerCase() == "ats") {
         if (!server) {
           return message.channel.send(
             "Use `!!servers` to find the server that you need stats for."
@@ -49,17 +49,17 @@ module.exports = {
           }
         }
 
-        if (server == "eusim") {
+        if (server.toLowerCase() == "eusim") {
           var serverResponse = jsonString.response[getServerNumber("9")];
-        } else if (server == "ussim") {
+        } else if (server.toLowerCase() == "ussim") {
           var serverResponse = jsonString.response[getServerNumber("11")];
-        } else if (server == "usarc") {
+        } else if (server.toLowerCase() == "usarc") {
           var serverResponse = jsonString.response[getServerNumber("38")];
-        } else if (server == "eventserver1") {
+        } else if (server.toLowerCase() == "eventserver1") {
           var serverResponse = jsonString.response[getServerNumber("14")];
-        } else if (server == "eventserver2") {
+        } else if (server.toLowerCase() == "eventserver2") {
           var serverResponse = jsonString.response[getServerNumber("18")];
-        } else if (server == "eventserver3") {
+        } else if (server.toLowerCase() == "eventserver3") {
           var serverResponse = jsonString.response[getServerNumber("25")];
         } else {
           return message.channel.send("Not a valid server for that game.");
@@ -123,7 +123,7 @@ module.exports = {
         return message.channel.send(stats);
       }
 
-      if (game == "ets2") {
+      if (game.toLowerCase() == "ets2") {
         if (!server) {
           return message.channel.send(
             "Use `!!servers` to find the server that you need stats for."
@@ -144,25 +144,25 @@ module.exports = {
           }
         }
 
-        if (server == "eusim1") {
+        if (server.toLowerCase() == "eusim1") {
           var serverResponse = jsonString.response[getServerNumber("4")];
-        } else if (server == "eusim2") {
+        } else if (server.toLowerCase() == "eusim2") {
           var serverResponse = jsonString.response[getServerNumber("5")];
-        } else if (server == "ussim") {
+        } else if (server.toLowerCase() == "ussim") {
           var serverResponse = jsonString.response[getServerNumber("30")];
-        } else if (server == "euarc") {
+        } else if (server.toLowerCase() == "euarc") {
           var serverResponse = jsonString.response[getServerNumber("8")];
-        } else if (server == "eupromods") {
+        } else if (server.toLowerCase() == "eupromods") {
           var serverResponse = jsonString.response[getServerNumber("31")];
-        } else if (server == "sgpsim") {
+        } else if (server.toLowerCase() == "sgpsim") {
           var serverResponse = jsonString.response[getServerNumber("35")];
-        } else if (server == "eupromodsarc") {
+        } else if (server.toLowerCase() == "eupromodsarc") {
           var serverResponse = jsonString.response[getServerNumber("32")];
-        } else if (server == "eventserver1") {
+        } else if (server.toLowerCase() == "eventserver1") {
           var serverResponse = jsonString.response[getServerNumber("14")];
-        } else if (server == "eventserver2") {
+        } else if (server.toLowerCase() == "eventserver2") {
           var serverResponse = jsonString.response[getServerNumber("18")];
-        } else if (server == "eventserver3") {
+        } else if (server.toLowerCase() == "eventserver3") {
           var serverResponse = jsonString.response[getServerNumber("25")];
         } else {
           return message.channel.send("Not a valid server for that game.");

@@ -40,7 +40,7 @@ module.exports = {
         .addField(`${config.prefix}info`, "Shows info about the bot.", true);
 
       message.channel.send(helpEmbed);
-    } else if (argOne == "stats") {
+    } else if (argOne.toLowerCase() == "stats") {
       const helpStatsEmbed = new Discord.MessageEmbed()
         .setTitle("How to use the Stats Command")
         .setAuthor("TruckersMP Stats Bot")
