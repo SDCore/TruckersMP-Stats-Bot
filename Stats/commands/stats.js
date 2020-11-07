@@ -77,22 +77,12 @@ module.exports = {
           var limiter = "Disabled";
         }
 
-        if (serverResponse.collisions == true) {
-          var collidable = "True";
-        } else {
-          var collidable = "False";
-        }
-
-        if (serverResponse.carsforplayers == true) {
-          var cars = "True";
-        } else {
-          var cars = "False";
-        }
-
-        if (serverResponse.policecarsforplayers == true) {
-          var police = "True";
-        } else {
-          var police = "False";
+        function serverCheck(check) {
+          if (check == true) {
+            return "True";
+          } else {
+            return "False";
+          }
         }
 
         const stats = new Discord.MessageEmbed()
@@ -116,9 +106,21 @@ module.exports = {
           .addField("Players Online", serverResponse.players, true)
           .addField("Max Players", serverResponse.maxplayers, true)
           .addField("Players in Queue", serverResponse.queue, true)
-          .addField("Collisions Enabled", collidable, true)
-          .addField("Cars for Players", cars, true)
-          .addField("Police Cars for Players", police, true);
+          .addField(
+            "Collisions Enabled",
+            serverCheck(serverResponse.collisions),
+            true
+          )
+          .addField(
+            "Cars for Players",
+            serverCheck(serverResponse.carsforplayers),
+            true
+          )
+          .addField(
+            "Police Cars for Players",
+            serverCheck(serverResponse.policecarsforplayers),
+            true
+          );
 
         return message.channel.send(stats);
       }
@@ -180,22 +182,12 @@ module.exports = {
           var limiter = "Disabled";
         }
 
-        if (serverResponse.collisions == true) {
-          var collidable = "True";
-        } else {
-          var collidable = "False";
-        }
-
-        if (serverResponse.carsforplayers == true) {
-          var cars = "True";
-        } else {
-          var cars = "False";
-        }
-
-        if (serverResponse.policecarsforplayers == true) {
-          var police = "True";
-        } else {
-          var police = "False";
+        function serverCheck(check) {
+          if (check == true) {
+            return "True";
+          } else {
+            return "False";
+          }
         }
 
         const stats = new Discord.MessageEmbed()
@@ -219,9 +211,21 @@ module.exports = {
           .addField("Players Online", serverResponse.players, true)
           .addField("Max Players", serverResponse.maxplayers, true)
           .addField("Players in Queue", serverResponse.queue, true)
-          .addField("Collisions Enabled", collidable, true)
-          .addField("Cars for Players", cars, true)
-          .addField("Police Cars for Players", police, true);
+          .addField(
+            "Collisions Enabled",
+            serverCheck(serverResponse.collisions),
+            true
+          )
+          .addField(
+            "Cars for Players",
+            serverCheck(serverResponse.carsforplayers),
+            true
+          )
+          .addField(
+            "Police Cars for Players",
+            serverCheck(serverResponse.policecarsforplayers),
+            true
+          );
 
         return message.channel.send(stats);
       } else {
