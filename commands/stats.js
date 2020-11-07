@@ -8,7 +8,7 @@ module.exports = {
   name: "stats",
   description: "Info about the bot",
   execute(message, args) {
-    fs.readFile("../apiOutput.json", "utf8", (err, jString) => {
+    fs.readFile("./apiOutput.json", "utf8", (err, jString) => {
       if (err) {
         console.log("File read failed:", err);
         return message.channel.send(

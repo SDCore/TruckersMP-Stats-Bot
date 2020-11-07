@@ -1,5 +1,5 @@
 require("dotenv").config();
-require("../apiOutput.json");
+require("./apiOutput.json");
 
 const Discord = require("discord.js");
 const client = new Discord.Client({
