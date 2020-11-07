@@ -25,11 +25,14 @@ module.exports = {
         .setAuthor("TruckersMP Stats Bot")
         .setColor("B92025")
         .setDescription(
-          `A current list of servers available to the bot.\nData was fetched **${moment(
-            jsonString.updateTime
-          ).fromNow()}**`
+          `To use these servers, type\n\`!!stats [game] [server]\`\n\nFor example:\n\`!!stats ets2 eusim1\``
         )
-        .setFooter(process.env.CREATOR_NAME, process.env.CREATOR_LOGO)
+        .setFooter(
+          `${process.env.CREATOR_NAME}  •  Data updated ${moment(
+            jsonString.updateTime
+          ).fromNow()}`,
+          process.env.CREATOR_LOGO
+        )
         .setTimestamp()
         .addField(
           "ETS2 Simulation Servers",
