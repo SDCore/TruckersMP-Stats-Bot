@@ -8,7 +8,7 @@ module.exports = {
   name: "stats",
   description: "Info about the bot",
   execute(message, args) {
-    fs.readFile("./apiOutput.json", "utf8", (err, jString) => {
+    fs.readFile("./API_Data/apiOutput.json", "utf8", (err, jString) => {
       if (err) {
         console.log("File read failed:", err);
         return message.channel.send(
@@ -86,7 +86,12 @@ module.exports = {
             `Current info for ${serverResponse.game}'s ${serverResponse.shortname} server.`
           )
           .setThumbnail("https://sdcore.dev/i/dlu9w46o.png")
-          .setFooter(process.env.CREATOR_NAME, process.env.CREATOR_LOGO)
+          .setFooter(
+            `${process.env.CREATOR_NAME}  •  Data updated ${moment(
+              jsonString.updateTime
+            ).fromNow()}`,
+            process.env.CREATOR_LOGO
+          )
           .setTimestamp()
           .setURL("https://stats.truckersmp.com/live")
           .addField(
@@ -188,7 +193,12 @@ module.exports = {
             `Current info for ${serverResponse.game}'s ${serverResponse.shortname} server.`
           )
           .setThumbnail("https://sdcore.dev/i/gxhhdkzx.png")
-          .setFooter(process.env.CREATOR_NAME, process.env.CREATOR_LOGO)
+          .setFooter(
+            `${process.env.CREATOR_NAME}  •  Data updated ${moment(
+              jsonString.updateTime
+            ).fromNow()}`,
+            process.env.CREATOR_LOGO
+          )
           .setTimestamp()
           .setURL("https://stats.truckersmp.com/live")
           .addField(

@@ -8,7 +8,7 @@ module.exports = {
   name: "servers",
   description: "Info about the bot",
   execute(message, args) {
-    fs.readFile("./apiOutput.json", "utf8", (err, jString) => {
+    fs.readFile("./API_Data/apiOutput.json", "utf8", (err, jString) => {
       if (err) {
         console.log("File read failed:", err);
         return message.channel.send(
@@ -20,12 +20,12 @@ module.exports = {
       jsonString = JSON.parse(jString);
 
       const servers = new Discord.MessageEmbed()
-        .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
+        .setThumbnail(process.env.THUMBNAIL_LOGO)
         .setTitle("TruckersMP Server List")
         .setAuthor("TruckersMP Stats Bot")
         .setColor("B92025")
         .setDescription(
-          `To use these servers, type\n\`!!stats [game] [server]\`\n\nFor example:\n\`!!stats ets2 eusim1\``
+          `To use these servers, type\n\`!!stats [game] [server]\`\n\nFor example:\n\`!!stats ets2 eusim1\` or \`!!stats ats usarc\``
         )
         .setFooter(
           `${process.env.CREATOR_NAME}  •  Data updated ${moment(

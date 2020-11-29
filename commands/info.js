@@ -12,7 +12,7 @@ module.exports = {
       .setColor("B92025")
       .setDescription("Information about this bot.")
       .setFooter(process.env.CREATOR_NAME, process.env.CREATOR_LOGO)
-      .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
+      .setThumbnail(process.env.THUMBNAIL_LOGO)
       .setTimestamp()
       .addField("Bot Version", `${process.env.BOT_VERSION}`, true)
       .addField("Last Updated", `${process.env.LAST_UPDATED}`, true)

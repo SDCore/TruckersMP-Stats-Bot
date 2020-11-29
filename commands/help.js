@@ -14,7 +14,7 @@ module.exports = {
         .setAuthor("TruckersMP Stats Bot")
         .setColor("B92025")
         .setFooter(process.env.CREATOR_NAME, process.env.CREATOR_LOGO)
-        .setThumbnail("https://sdcore.dev/i/jr8vjd0m.png")
+        .setThumbnail(process.env.THUMBNAIL_LOGO)
         .setTimestamp()
         .addField(
           "This Bot",
