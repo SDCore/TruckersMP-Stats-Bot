@@ -1,3 +1,5 @@
 **/node_modules/
 **apiOutput.json
+**version.json
+**servers.json
 **config.json
