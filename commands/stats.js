@@ -71,14 +71,8 @@ module.exports = {
           var serverStatus = "Offline";
         }
 
-        if (serverResponse.speedlimiter == 1) {
-          var limiter = "Enabled";
-        } else {
-          var limiter = "Disabled";
-        }
-
         function serverCheck(check) {
-          if (check == true) {
+          if (check == true || check == "Enabled") {
             return "True";
           } else {
             return "False";
@@ -87,7 +81,6 @@ module.exports = {
 
         const stats = new Discord.MessageEmbed()
           .setTitle(`American Truck Simulator - ${serverResponse.shortname}`)
-          .setAuthor("TruckersMP Stats Bot")
           .setColor("B92025")
           .setDescription(
             `Current info for ${serverResponse.game}'s ${serverResponse.shortname} server.`
@@ -102,7 +95,11 @@ module.exports = {
             true
           )
           .addField("Server Status", serverStatus, true)
-          .addField("Speed Limiter", limiter, true)
+          .addField(
+            "Speed Limiter",
+            serverCheck(serverResponse.speedlimiter),
+            true
+          )
           .addField("Players Online", serverResponse.players, true)
           .addField("Max Players", serverResponse.maxplayers, true)
           .addField("Players in Queue", serverResponse.queue, true)
@@ -176,14 +173,8 @@ module.exports = {
           var serverStatus = "Offline";
         }
 
-        if (serverResponse.speedlimiter == 1) {
-          var limiter = "Enabled";
-        } else {
-          var limiter = "Disabled";
-        }
-
         function serverCheck(check) {
-          if (check == true) {
+          if (check == true || check == "Enabled") {
             return "True";
           } else {
             return "False";
@@ -191,8 +182,7 @@ module.exports = {
         }
 
         const stats = new Discord.MessageEmbed()
-          .setTitle(`American Truck Simulator - ${serverResponse.shortname}`)
-          .setAuthor("TruckersMP Stats Bot")
+          .setTitle(`Euro Truck Simulator 2 - ${serverResponse.shortname}`)
           .setColor("B92025")
           .setDescription(
             `Current info for ${serverResponse.game}'s ${serverResponse.shortname} server.`
@@ -207,7 +197,11 @@ module.exports = {
             true
           )
           .addField("Server Status", serverStatus, true)
-          .addField("Speed Limiter", limiter, true)
+          .addField(
+            "Speed Limiter",
+            serverCheck(serverResponse.speedlimiter),
+            true
+          )
           .addField("Players Online", serverResponse.players, true)
           .addField("Max Players", serverResponse.maxplayers, true)
           .addField("Players in Queue", serverResponse.queue, true)
