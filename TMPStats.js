@@ -1,12 +1,12 @@
 require("dotenv").config();
 require("./API_Data/servers.json");
 
-const Discord = require("discord.js");
+const Discord = require("discord.js-light");
 const client = new Discord.Client({
   cacheRoles: false,
   cacheGuilds: true,
   cacheEmojis: false,
-  cacheChannels: false,
+  cacheChannels: true,
   cachePresences: false,
   cacheOverwrites: false,
 });

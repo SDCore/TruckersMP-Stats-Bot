@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const config = require("./config.json");
 
-const { ShardingManager } = require("discord.js");
+const { ShardingManager } = require("discord.js-light");
 const manager = new ShardingManager("./TMPStats.js", {
   token: config.token,
 });

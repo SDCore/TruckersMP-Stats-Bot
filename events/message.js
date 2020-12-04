@@ -28,7 +28,7 @@ client.on("message", (message) => {
       .channels.cache.get("772025716073824266")
       .send(dmContent);
     message.reply(
-      "Hey! Join the support server at https://discord.gg/f3Pa8vJ to get support.\n\n*These DM's are not monitored.*"
+      `Hey! Join the support server at ${process.env.SUPPORT_SERVER} to get support.\n\n*These DM's are not monitored.*`
     );
     return;
   }
