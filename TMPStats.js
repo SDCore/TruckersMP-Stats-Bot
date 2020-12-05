@@ -6,7 +6,7 @@ const client = new Discord.Client({
   cacheRoles: false,
   cacheGuilds: true,
   cacheEmojis: false,
-  cacheChannels: false,
+  cacheChannels: true,
   cachePresences: false,
   cacheOverwrites: false,
 });
