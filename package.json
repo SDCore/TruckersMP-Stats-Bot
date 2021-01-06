@@ -6,7 +6,7 @@
   "author": "SDCore",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "bufferutil": "^4.0.2",
     "discord.js": "^12.5.1",
     "discord.js-light": "^3.4.2",
